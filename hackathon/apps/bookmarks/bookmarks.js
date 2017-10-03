@@ -12,14 +12,14 @@ function main(req, res, app)
 	], true);
 
 	app.addCSS([
-		'/bookmarksModule/assets/css/bookmarksModule.css',
+		'/bookmarks/assets/css/bookmarks.css',
 	]);
 
 	app.addJS([
 		'/assets/js/lib/translate.js',
 		'/assets/js/lib/templates.js',
-		'/bookmarksModule/assets/js/Views/BookmarksModule.js',
-		'/bookmarksModule/assets/js/Controllers/BookmarksModule.js',
+		'/bookmarks/assets/js/Views/Bookmarks.js',
+		'/bookmarks/assets/js/Controllers/Bookmarks.js',
 	]);
 
 
@@ -38,13 +38,13 @@ function use(type, name, req, res)
 exports.getApplication = function(req, res)
 {
 	var session = req.session.get();
-	var app = new sapphire.Application('BOOKMARKSMODULE', req, res);
+	var app = new sapphire.Application('BOOKMARKS', req, res);
 
-	app.setTitle('BookmarksModule');
-	app.setBody('apps//bookmarksModule/templates/body.html');
-	app.setMaster('apps//bookmarksModule/templates/master.html');
+	app.setTitle('Bookmarks');
+	app.setBody('apps/bookmarks/templates/body.html');
+	app.setMaster('apps/bookmarks/templates/master.html');
 	app.addVariable('baseUrl', CONFIG.baseUrl);
-	app.addVariable('appId', CONFIG.saving-my-info.appId);
+	app.addVariable('appId', CONFIG['bookmarks'].appId);
 
 	return main(req, res, app)
 		.then(sapphire.features.animator.bind(sapphire.features.animator, req, res))

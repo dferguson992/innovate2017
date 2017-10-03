@@ -1,4 +1,4 @@
-Package('BookmarksModule.Services', {
+Package('Bookmarks.Services', {
 	Bootstrap : new Class({
 		implements: ['exportService', 'importService', 'getUserId'],
 
@@ -47,7 +47,7 @@ Package('BookmarksModule.Services', {
 
 		onReady : function()
 		{
-			return SYMPHONY.application.connect(BOOKMARKSMODULE.appId, this.importServices, this.exportServices)
+			return SYMPHONY.application.connect(BOOKMARKS.appId, this.importServices, this.exportServices)
 				.then(function(response)
 				{
 					this.userId = response.userReferenceId;
@@ -56,7 +56,7 @@ Package('BookmarksModule.Services', {
 
 					this.uiService.listen('themeChangeV2', this.onThemeChange.bind(this));
 
-					BOOKMARKSMODULE.events.fire('start');
+					BOOKMARKS.events.fire('start');
 				}.bind(this))
 				.done();
 		},
@@ -68,4 +68,4 @@ Package('BookmarksModule.Services', {
 	})
 });
 
-new BookmarksModule.Services.Bootstrap();
+new Bookmarks.Services.Bootstrap();

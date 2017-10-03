@@ -1,10 +1,10 @@
 Package('SavingMyInfo.Services', {
 	Navigate : new Class({
-		implements : ["trigger"],
+		implements : ["trigger", "select"],
 		initialize : function()
 		{
 			this.serviceName = 'saving-my-info:navigate';
-			this.importServices = 'application-nav,modules,ui'.split(',');
+			this.importServices = 'applications-nav,modules,ui'.split(',');
 
 			SYMPHONY.services.make(this.serviceName, this, this.implements, true);
 
@@ -24,15 +24,19 @@ Package('SavingMyInfo.Services', {
 				}
 			  );
 
+		},
+		select : function(id) 
+		{
+			var mod = SYMPHONY.services.subscribe('modules');
 			mod.show(
 				"bookmarksModule", 
-				{title: "Saved Bookmarks"}, 
+				{title: "My Bookmarks"}, 
 				this.serviceName, 
 				"https://localhost:80/bookmarks", 
 				{
-				"canFloat": true
+				  "canFloat": true
 				}
-			);
+			  );
 		},
 		onStart : function(done)
 		{
@@ -53,6 +57,9 @@ Package('SavingMyInfo.Services', {
 			ui.registerExtension('single-user-im', 'singleIm', this.serviceName, {label: "Save"});
 			ui.registerExtension('multi-user-im', 'multi-Im', this.serviceName, {label: "Save"});
 			ui.registerExtension('room', 'room-Im', this.serviceName, {label: "Save"});
+
+			var nav = SYMPHONY.services.subscribe('applications-nav');
+			nav.add("bookmarks-nav", "My Bookmarks", this.serviceName);
 		}
 	})
 });
