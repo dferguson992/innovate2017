@@ -1,0 +1,8 @@
+spring:
+    application:
+        name: cruncher
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://smi.ceaz9grdgefu.us-east-1.rds.amazonaws.com:3306/savingmyinfo
+server:
+    port: 8081
