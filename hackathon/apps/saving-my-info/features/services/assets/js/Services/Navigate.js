@@ -17,7 +17,7 @@ Package('SavingMyInfo.Services', {
 			console.log(arguments);
 			mod.show(
 				"notebookModule", 
-				{title: "My Notebook"}, 
+				{title: "Bookmark Messages"}, 
 				this.serviceName, 
 				"https://localhost:80/notebook", 
 				{
