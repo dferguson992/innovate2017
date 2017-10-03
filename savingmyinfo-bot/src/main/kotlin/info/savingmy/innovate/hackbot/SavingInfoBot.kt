@@ -1,5 +1,8 @@
 package info.savingmy.innovate.hackbot
 
+import info.savingmy.innovate.hackbot.commands.Command
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.symphonyoss.client.SymphonyClient
 import org.symphonyoss.client.SymphonyClientConfig
 import org.symphonyoss.client.SymphonyClientFactory
@@ -11,7 +14,8 @@ import org.symphonyoss.symphony.clients.model.SymMessage
  */
 class SavingInfoBot : MessageListener
 {
-    private val client : SymphonyClient = SymphonyClientFactory.getClient(SymphonyClientFactory.TYPE.V4, SymphonyClientConfig())
+    val client : SymphonyClient = SymphonyClientFactory.getClient(SymphonyClientFactory.TYPE.V4, SymphonyClientConfig())
+    val messagesPerStream: MutableMap<String, MutableList<SymMessage>> = mutableMapOf()
 
     init
     {
@@ -24,7 +28,25 @@ class SavingInfoBot : MessageListener
      */
     override fun onMessage(message: SymMessage)
     {
-        client.messagesClient.sendMessage(message.stream, SymMessage().build(SymMessage.Format.MESSAGEML, message.message, message.entityData))
+        // executing a command
+        if (message.messageText.startsWith('!'))
+        {
+            Command.runCommand(message, this)
+        }
+        else if (message.fromUserId != client.localUser.id)
+        {
+            Command.HELP.onCommand(message.fromUserId, message.stream, this)
+            val messagesInRoom = messagesPerStream.getOrPut(message.streamId) { mutableListOf() }
+            messagesInRoom.add(message)
+
+            if (messagesInRoom.size > 10)
+                messagesInRoom.removeAt(0)
+        }
+    }
+
+    companion object
+    {
+        val logger: Logger = LoggerFactory.getLogger(SavingInfoBot::class.java)
     }
 }
 
@@ -41,5 +63,12 @@ fun SymMessage.build(format: SymMessage.Format, message: String, entityData: Str
     this.format = format
     this.message = message
     this.entityData = entityData
+    return this
+}
+
+fun SymMessage.build(format: SymMessage.Format, message: String): SymMessage
+{
+    this.format = format
+    this.message = message
     return this
 }
