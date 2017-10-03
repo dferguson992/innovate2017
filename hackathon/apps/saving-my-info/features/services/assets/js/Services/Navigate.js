@@ -54,9 +54,9 @@ Package('SavingMyInfo.Services', {
 		onReady : function()
 		{
 			var ui = SYMPHONY.services.subscribe('ui');
-			ui.registerExtension('single-user-im', 'singleIm', this.serviceName, {label: "Save"});
-			ui.registerExtension('multi-user-im', 'multi-Im', this.serviceName, {label: "Save"});
-			ui.registerExtension('room', 'room-Im', this.serviceName, {label: "Save"});
+			ui.registerExtension('single-user-im', 'singleIm', this.serviceName, {label: "Bookmark"});
+			ui.registerExtension('multi-user-im', 'multi-Im', this.serviceName, {label: "Bookmark"});
+			ui.registerExtension('room', 'room-Im', this.serviceName, {label: "Bookmark"});
 
 			var nav = SYMPHONY.services.subscribe('applications-nav');
 			nav.add("bookmarks-nav", "My Bookmarks", this.serviceName);
