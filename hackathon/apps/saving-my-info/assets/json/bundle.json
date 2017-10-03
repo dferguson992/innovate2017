@@ -1,0 +1,15 @@
+{
+  "applications": [
+    {
+      "type": "sandbox",
+      "id": "saving-my-info",
+      "name": "SavingMyInfo",
+      "blurb": "Do the SavingMyInfo thing",
+      "publisher": "",
+      "url": "https://localhost:80/saving-my-info",
+      "domain": "localhost",
+      "visible": true,
+      "icon":"https://localhost:80/saving-my-info/assets/images/app.png"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 ﻿
 // Create our own local service pertaining to the application module
 // We have namespaced local services with "hello:"
-var helloAppService = SYMPHONY.services.register("hello:app");
+var helloAppService = SYMPHONY.services.register("savemyinfo:app");
 
 
 var $ = require('jquery');
@@ -14,7 +14,7 @@ SYMPHONY.remote.hello().then(function (data) {
     // You must add the symphony-external-app class to the body element
     document.body.className = "symphony-external-app " + themeColor + " " + themeSize;
 
-    SYMPHONY.application.connect("hello", ["modules", "applications-nav", "ui", "share"], ["hello:app"]).then(function (response) {
+    SYMPHONY.application.connect("hello", ["modules", "applications-nav", "ui", "share"], ["savemyinfo:app"]).then(function (response) {
 
         // The userReferenceId is an anonymized random string that can be used for uniquely identifying users.
         // The userReferenceId persists until the application is uninstalled by the user. 
@@ -40,7 +40,7 @@ SYMPHONY.remote.hello().then(function (data) {
         var menuItem = "savemyinfo";
         // MODULE: Add a menu item to our module
         modulesService.addMenuItem(menuItem, "Save the latest message", "hello-menu-item");
-        modulesService.setHandler(menuItem, "hello:app");
+        modulesService.setHandler(menuItem, "savemyinfo:app");
 
 
         // LEFT NAV: Update the left navigation item's badge count when the "Increment Unread Badge Count" button is clicked using the navService's count method.

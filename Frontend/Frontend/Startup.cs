@@ -54,6 +54,9 @@ namespace Frontend
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                    name: "bundle.json",
+                    template: "bundle.json");
             });
         }
     }

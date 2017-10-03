@@ -29,7 +29,7 @@ However you may still need to do make changes to your project.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+            loggerFactory.AddDebug();T
 
             app.UseMvc(routes =>
             {
