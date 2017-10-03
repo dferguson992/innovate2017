@@ -14,6 +14,7 @@ Package('SavingMyInfo.Services', {
 		trigger : function()
 		{
 			var mod = SYMPHONY.services.subscribe('modules');
+			console.log(arguments);
 			mod.show(
 				"notebookModule", 
 				{title: "My Notebook"}, 
