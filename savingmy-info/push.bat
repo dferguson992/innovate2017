@@ -8,5 +8,5 @@ docker create --name savingmy-info-build-container savingmy-info-build
 docker cp savingmy-info-build-container:/out ./publish
 docker build -t savingmy-info .
 
-docker tag savingmy-info 445932717067.dkr.ecr.us-east-1.amazonaws.com/savingmy-info:latest 
-docker push 445932717067.dkr.ecr.us-east-1.amazonaws.com/savingmy-info:latest
+docker tag savingmy-info 445932717067.dkr.ecr.us-east-1.amazonaws.com/savingmy-info:%1 
+docker push 445932717067.dkr.ecr.us-east-1.amazonaws.com/savingmy-info:%1

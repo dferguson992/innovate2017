@@ -6,11 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace savingmy_info.Controllers
 {
-    public class HealthCheckController : Controller
+    public class UpdateTagController : Controller
     {
-        public OkResult Index()
+        [HttpPost("{msgId}")]
+        public JsonResult UpdateTags(string[] filter)
         {
-            return Ok();
+            return Json("");
         }
     }
 }
