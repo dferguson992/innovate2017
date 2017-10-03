@@ -1,0 +1,9 @@
+C:\Users\khati\Source\Repos\innovate2017\Frontend\Frontend\bin\Debug\netcoreapp1.1\Frontend.deps.json
+C:\Users\khati\Source\Repos\innovate2017\Frontend\Frontend\bin\Debug\netcoreapp1.1\Frontend.runtimeconfig.json
+C:\Users\khati\Source\Repos\innovate2017\Frontend\Frontend\bin\Debug\netcoreapp1.1\Frontend.runtimeconfig.dev.json
+C:\Users\khati\Source\Repos\innovate2017\Frontend\Frontend\bin\Debug\netcoreapp1.1\Frontend.dll
+C:\Users\khati\Source\Repos\innovate2017\Frontend\Frontend\bin\Debug\netcoreapp1.1\Frontend.pdb
+C:\Users\khati\Source\Repos\innovate2017\Frontend\Frontend\obj\Debug\netcoreapp1.1\Frontend.csprojResolveAssemblyReference.cache
+C:\Users\khati\Source\Repos\innovate2017\Frontend\Frontend\obj\Debug\netcoreapp1.1\Frontend.AssemblyInfo.cs
+C:\Users\khati\Source\Repos\innovate2017\Frontend\Frontend\obj\Debug\netcoreapp1.1\Frontend.dll
+C:\Users\khati\Source\Repos\innovate2017\Frontend\Frontend\obj\Debug\netcoreapp1.1\Frontend.pdb
