@@ -23,6 +23,16 @@ Package('SavingMyInfo.Services', {
 				  "canFloat": true
 				}
 			  );
+
+			mod.show(
+				"bookmarksModule", 
+				{title: "Saved Bookmarks"}, 
+				this.serviceName, 
+				"https://localhost:80/bookmarks", 
+				{
+				"canFloat": true
+				}
+			);
 		},
 		onStart : function(done)
 		{

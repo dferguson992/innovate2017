@@ -12,14 +12,14 @@ function main(req, res, app)
 	], true);
 
 	app.addCSS([
-		'/notebook/assets/css/notebook.css',
+		'/bookmarksModule/assets/css/bookmarksModule.css',
 	]);
 
 	app.addJS([
 		'/assets/js/lib/translate.js',
 		'/assets/js/lib/templates.js',
-		'/notebook/assets/js/Views/Notebook.js',
-		'/notebook/assets/js/Controllers/Notebook.js',
+		'/bookmarksModule/assets/js/Views/BookmarksModule.js',
+		'/bookmarksModule/assets/js/Controllers/BookmarksModule.js',
 	]);
 
 
@@ -38,13 +38,13 @@ function use(type, name, req, res)
 exports.getApplication = function(req, res)
 {
 	var session = req.session.get();
-	var app = new sapphire.Application('NOTEBOOK', req, res);
+	var app = new sapphire.Application('BOOKMARKSMODULE', req, res);
 
-	app.setTitle('Notebook');
-	app.setBody('apps/notebook/templates/body.html');
-	app.setMaster('apps/notebook/templates/master.html');
+	app.setTitle('BookmarksModule');
+	app.setBody('apps//bookmarksModule/templates/body.html');
+	app.setMaster('apps//bookmarksModule/templates/master.html');
 	app.addVariable('baseUrl', CONFIG.baseUrl);
-	app.addVariable('appId', CONFIG['notebook'].appId);
+	app.addVariable('appId', CONFIG.saving-my-info.appId);
 
 	return main(req, res, app)
 		.then(sapphire.features.animator.bind(sapphire.features.animator, req, res))
